@@ -43,4 +43,16 @@ describe('Header', () => {
     const titleClass = fixture.componentInstance.headerTitle;
     expect(titleClass).toBe('Hello');
   });
+
+  it('should display a logo of the company', () => {
+    component.logoUrl =
+      'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png';
+    fixture.detectChanges();
+
+    // DOM
+    const logoDOM = fixture.nativeElement.querySelector('.brand-icon');
+    expect(logoDOM.src).toBe(
+      'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
+    );
+  });
 });

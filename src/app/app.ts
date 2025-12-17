@@ -17,6 +17,8 @@ export class App {
   product2 = mockedProduct2;
   product3 = mockedProduct3;
 
+  products: Product[] = [mockedProduct, mockedProduct2, mockedProduct3];
+
   displayProductInConsole(product: Product) {
     console.log('Product added to cart', product);
   }
