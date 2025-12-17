@@ -9,13 +9,19 @@ import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatBadgeModule, MatMenuModule, MatTooltipModule],
+  imports: [
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatBadgeModule,
+    MatMenuModule,
+    MatTooltipModule,
+  ],
   templateUrl: './header.html',
   styleUrl: './header.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Header {
-  protected readonly themeService = inject(ThemeService);
   cartItemCount = signal(0);
   mobileMenuOpen = signal(false);
 
