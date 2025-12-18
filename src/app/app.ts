@@ -1,10 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, HostBinding, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { ProductComponent } from './components/product/product';
 import { mockedProduct, mockedProduct2, mockedProduct3 } from './data/mockedProduct';
 import { Product } from './models/product.interface';
+import { ApiService } from './api.service';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +14,12 @@ import { Product } from './models/product.interface';
   styleUrl: './app.css',
 })
 export class App {
-  product = mockedProduct;
-  product2 = mockedProduct2;
-  product3 = mockedProduct3;
+  private apiService = inject(ApiService);
+  products = this.apiService.products;
 
-  products: Product[] = [mockedProduct, mockedProduct2, mockedProduct3];
+  constructor() {
+    this.apiService.fetchProducts().subscribe();
+  }
 
   displayProductInConsole(product: Product) {
     console.log('Product added to cart', product);

@@ -1,16 +1,14 @@
 <!-- Créer un header -->
 <app-header></app-header>
 
-@if (products.length > 0) {
 <div class="content">
-  @for (product of products; track product.id) {
+  @for (product of products(); track product.id) {
   <app-product
     [product]="product"
     (addToCartOutput)="displayProductInConsole($event)"
   ></app-product>
   }
 </div>
-}
 
 <!-- Créer un footer -->
 <app-footer></app-footer>

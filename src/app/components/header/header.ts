@@ -27,6 +27,20 @@ export class Header {
 
   headerTitle: string = 'RotorCraft 2';
 
+  logoUrl: string = '';
+
+  normalConditions(isTrue: boolean) {
+    if (isTrue) {
+      return 'Yes';
+    } else {
+      return 'No';
+    }
+  }
+
+  ternaryConditions(isTrue: boolean) {
+    return isTrue === true ? 'Yes' : 'No';
+  }
+
   toggleMobileMenu() {
     this.mobileMenuOpen.update((open) => !open);
   }
