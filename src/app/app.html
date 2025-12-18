@@ -1,14 +1,7 @@
 <!-- Créer un header -->
 <app-header></app-header>
 
-<div class="content">
-  @for (product of products(); track product.id) {
-  <app-product
-    [product]="product"
-    (addToCartOutput)="displayProductInConsole($event)"
-  ></app-product>
-  }
-</div>
+<router-outlet></router-outlet>
 
 <!-- Créer un footer -->
 <app-footer></app-footer>
